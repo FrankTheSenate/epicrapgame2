@@ -22,31 +22,35 @@ public class physics : MonoBehaviour
         currentjumps = 0;
     }
 
-    // Update is called once per frame
+    /**
+     * Object Update is called once per frame
+    */
     void Update()
     {
+        // -- Update state --
+        if (IsGrounded() == true)
+        {
+            currentjumps = maxjumps;
+            // print("ruh");        // todo / temp
+        }
 
+
+        // -- Check for movement --
         if (Input.GetKey(KeyCode.A))
         {
-            //Add Negative rb Horizontal Velocity
+            // Add Negative rb Horizontal Velocity
             rb.velocity += new Vector2(-acceleration * Time.deltaTime, 0);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            //Add Positive rb Horizontal Velocity
+            // Add Positive rb Horizontal Velocity
             rb.velocity += new Vector2(acceleration * Time.deltaTime, 0);
-        }
-
-
-        if (IsGrounded() == true)
-        {
-            currentjumps = maxjumps;
-            print("ruh");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Check if jump is valid, if so decrement remaining jumps
             if (currentjumps > 0)
             {
                 rb.velocity += new Vector2(0, jspeed);
@@ -55,11 +59,11 @@ public class physics : MonoBehaviour
         }
 
     }
+
     private bool IsGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, .1f);
         return raycastHit.collider;
-
     }
 }
     
