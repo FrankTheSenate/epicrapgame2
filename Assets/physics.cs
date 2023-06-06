@@ -39,19 +39,19 @@ public class physics : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            if (currentjumps > 0)
-            {
-                rb.velocity += new Vector2(0, jspeed * Time.deltaTime);
-                currentjumps -= 1;
-            }
-        }
-
         if (IsGrounded() == true)
         {
             currentjumps = maxjumps;
             print("ruh");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (currentjumps > 0)
+            {
+                rb.velocity += new Vector2(0, jspeed);
+                currentjumps -= 1;
+            }
         }
 
     }

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 296962131}
   - component: {fileID: 296962133}
   - component: {fileID: 296962132}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: spr_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 40
-  jspeed: 200
+  jspeed: 20
   maxjumps: 1
 --- !u!61 &296962133
 BoxCollider2D:
