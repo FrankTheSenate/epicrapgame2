@@ -17,8 +17,9 @@ public class physics : MonoBehaviour
     {
         //Declare variables
         rb = GetComponent<Rigidbody2D>();
-        currentjumps = 0;
         collider = GetComponent<BoxCollider2D>();
+
+        currentjumps = 0;
     }
 
     // Update is called once per frame
@@ -30,7 +31,8 @@ public class physics : MonoBehaviour
             //Add Negative rb Horizontal Velocity
             rb.velocity += new Vector2(-acceleration * Time.deltaTime, 0);
         }
-        else if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.D))
         {
             //Add Positive rb Horizontal Velocity
             rb.velocity += new Vector2(acceleration * Time.deltaTime, 0);
